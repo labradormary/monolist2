@@ -23,21 +23,15 @@
         <h4 class="side-box-title">Haveしたユーザー</h4>
         <div class="side-box-body">
           <% @item.have_users.each do |have_user| %>
-          
-　　　  <%= link_to gravatar_for(have_user, size: 20), have_user %>
-　　　  <span class="gravatar">
-　　　  </span>
-　　　    <% end %>
+       <%= link_to gravatar_for(have_user, size: 20), have_user %>
+       <% end %>
         </div>
       </div>
         <div class="side-box">
         <h4 class="side-box-title">Wantしたユーザー</h4>
         <div class="side-box-body">
-  
           <% @item.want_users.each do |want_user| %>
-          <span class="gravatar">
           <%= link_to gravatar_for(want_user, size: 20), want_user %>
-          </span>
           <% end %>
            
         </div>
@@ -49,3 +43,8 @@
     </div>
   </div>
 </div>
+
+<% content_for :head do %>
+  <title><%= @item.title %>-monolist</title>
+  <meta name="description" content="<%= @item.title %>に関する情報です。この商品を欲しい人、持ってる人を表示しています。" >
+<% end %>
